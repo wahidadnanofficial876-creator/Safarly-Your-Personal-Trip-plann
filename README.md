@@ -1,4 +1,4 @@
-# Safarly-Your-Personal-Trip-plann
+# Safarly-Your-Personal-Trip-plan
 # Safarly – AI-Powered Trip Expense Planner
 
 Traveling with friends or family is exciting, but managing expenses during a trip can be challenging. Many travelers set a budget before leaving, yet they often forget to record expenses, lose track of small purchases, or realize only after the trip that they have overspent. This makes it difficult to understand where the money went, stay within budget, or plan future trips more effectively.
