@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="Assets/CSS/navbar.css">
+    <link rel="stylesheet" href="Assets/CSS/dashboard.css">
+    <link href="Assets/CSS/category.css" rel="stylesheet">
+    <link href="Assets/CSS/chart.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="layout">
+
+
+
+    <aside id="container">
+
+        <div id="navbar">
+            <div id="product-name">
+                
+                <h2>Bachao Pakistan</h2>
+
+                
+            </div>
+        </div>
+
+        <div id="navbar-buttons">
+
+            <button id="dashboard-button">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </button>
+
+            <button id="expenses-button">
+                <i class="fa-solid fa-receipt"></i>
+                Expenses
+            </button>
+
+            <button id="categories-button">
+                <i class="fa-solid fa-folder"></i>
+                Categories
+            </button>
+
+            <button id="reports-button">
+                <i class="fa-solid fa-chart-column"></i>
+                Budget
+            </button>
+
+        </div>
+
+        <div id="expense-details">
+            
+        </div>
+
+    </aside>
+
+    
+
+    <main class="main-content">
+
+        
+
+        <header class="topbar" id="dashboard-heading">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Track your income and expenses</p>
+                </div>
+
+            </div>
+
+
+        </header>
+
+
+
+        <section class="stats" id="stats-panel">
+
+            <div class="stat-card">
+                <div class="stat-icon icon-purple">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+
+                <p class="stat-label">Total Budget</p>
+                <h2 class="stat-value value-purple" id="totalBudget">0 Rs</h2>
+                <p class="stat-sub">Allocated Budget</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon icon-red">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                </div>
+
+                <p class="stat-label">Total Expenses</p>
+                <h2 class="stat-value value-red" id="totalExpenses">0 Rs</h2>
+                <p class="stat-sub">All Expenses</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon icon-green">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                </div>
+
+                <p class="stat-label">Remaining Budget</p>
+                <h2 class="stat-value value-green" id="remainingBudget">0 Rs</h2>
+                <p class="stat-sub">Left to Spend</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon icon-blue">
+                    <i class="fa-solid fa-file-invoice"></i>
+                </div>
+
+                <p class="stat-label">Total Transactions</p>
+                <h2 class="stat-value" id="totalTransactions">0</h2>
+                <p class="stat-sub">This Month</p>
+            </div>
+
+        </section>
+<section id="chart-panel">
+    <div id="charts">
+        <canvas id="chart" aria-label="expense-chart" role="img"></canvas>
+    </div>
+</section>
+
+
+        <section class="panel" id="dashboard-panel">
+
+            <h2 class="panel-title">
+                <i class="fa-solid fa-square-plus"></i>
+                Add New Expense
+            </h2>
+
+            <form id="expenseForm" class="form-grid">
+
+                <div class="field">
+                    <label for="title">Title</label>
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="e.g. Groceries"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="amount">Amount (Rs)</label>
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="100"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="category">Category</label>
+
+                    <select id="category" required>
+
+                        <option disabled selected>Select Category</option>
+
+                        <option>Food</option>
+                        <option>Transport</option>
+                        <option>Utilities</option>
+                        <option>Entertainment</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+                <div class="field">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-actions">
+
+                    <button class="btn-primary" type="submit" id="add-expense-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Expense
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        
+
+        <section class="panel" id="dashboard-details">
+
+            <h2 class="panel-title">
+                <i class="fa-solid fa-list"></i>
+                Expenses List
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                        
+                            
+                        </th>
+                        
+                    </tr>
+
+                </thead>
+
+                <tbody id="expenseTableBody">
+                
+                </tbody>
+
+            </table>
+</table>
+
+
+        </section>
+
+        <section id="categories" style="display: none;">
+    <div class="categories-card">
+        <div class="empty-category">
+            <div class="category-icon">
+                <i class="fa-solid fa-tags"></i>
+            </div>
+
+            <h2>No Categories</h2>
+
+            <p>
+                Get started by creating your first category to organize your expenses.
+            </p>
+
+            <button id="category-button">
+                <i class="fa-solid fa-plus"></i>
+                Add Category
+            </button>
+        </div>
+    </div>
+</section>
+
+        <footer class="footer">
+            <p> Bachao Pakistan 2026</p>
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+<script src="Assets/JS/script.js"></script>
+</html>>

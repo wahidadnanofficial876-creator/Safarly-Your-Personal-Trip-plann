@@ -1,0 +1,21 @@
+#chart-panel{
+    display: flex;
+    gap: 30px;
+    margin-top: 80px;   
+    margin-bottom: 40px;
+}
+
+#charts,
+#bar-chart{
+    flex: 1;
+    height: 350px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#charts canvas,
+#bar-chart canvas{
+    width: 100% !important;
+    height: 100% !important;
+}
