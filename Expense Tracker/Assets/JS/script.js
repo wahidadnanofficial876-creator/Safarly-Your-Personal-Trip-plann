@@ -16,8 +16,10 @@ const date = document.getElementById("date");
 const addExpenseBtn = document.getElementById("add-expense-btn");
 const tBody = document.getElementById("expenseTableBody");
 const TotalExpenditure = document.getElementById("totalExpenses");
+const budgetButton=document.getElementById('reports-button');
+const budgetPanel=document.getElementById('Budget-Panel');
 //making an array to store expenses
-let expenses = [];
+let expenses =[];
 
 //making an array of objects while clicking expense btn
 addExpenseBtn.addEventListener("click", (e) => {
@@ -104,6 +106,20 @@ function shiftToCategoryTab() {
     categories.style.display = "flex";
   });
 }
+function shiftToBudgetTab()
+{
+  budgetButton.addEventListener('click',
+    ()=>{
+       statsPanel.style.display = "none";
+    dashboardHeading.style.display = "none";
+    chart.style.display = "none";
+    dashboardPanel.style.display = "none";
+    expenseDetails.style.display = "none";
+    categories.style.display = "none";
+    budgetPanel.style.display='flex';
+    }
+  )
+}
 function setUpChart(type) {
   let chart = new Chart(ctx, {
     type,
@@ -145,3 +161,4 @@ setUpChart("pie");
 shiftToCategoryTab();
 shiftToExpenseTab();
 shiftToDashboardTab();
+shiftToBudgetTab();
