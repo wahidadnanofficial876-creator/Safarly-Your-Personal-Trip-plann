@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="Assets/CSS/dashboard.css">
     <link href="Assets/CSS/category.css" rel="stylesheet">
     <link href="Assets/CSS/chart.css" rel="stylesheet">
+    <link href="Assets/CSS/budget.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         crossorigin="anonymous"
@@ -29,7 +30,7 @@
         <div id="navbar">
             <div id="product-name">
                 
-                <h2>Bachao Pakistan</h2>
+                <h2>Safarly</h2>
 
                 
             </div>
@@ -52,7 +53,7 @@
                 Categories
             </button>
 
-            <button id="reports-button">
+            <button id="budget-button">
                 <i class="fa-solid fa-chart-column"></i>
                 Budget
             </button>
@@ -261,8 +262,37 @@
         </div>
     </div>
 </section>
-<section id="Budget-Panel">
-    
+<section id="budget" style="display: none;">
+    <div class="budget-card">
+        <div class="budget-category">
+            <div class="budget-icon">
+                <i class="fa-solid fa-chart-column"></i>
+            </div>
+
+            <h2>No Budget Details</h2>
+
+            <p>
+                Get started by Editing your Budget Details.
+            </p>
+
+            <button id="budget-add">
+                <i class="fa-solid fa-plus"></i>
+                Add Total Budget
+            </button>
+        </div>
+    </div>
+    <div class="edit-container"  id="edit" style="display: none;">
+        <div id="edit-budget">
+            <h2>Hey! Edit your Budget</h2>
+            <input id="budget-edit" placeholder="Enter your Budget Here!">
+            <button id="edit-button">Change Budget</button>
+        </div>
+    </div>
+    <div class="pop-up" id="message">
+        <img  src="assets/images/Tick.png">
+        <h2>Budget Added Successfuly!</h2>
+        <button id="confirmationBtn">OK</button>
+    </div>
 </section>
         <footer class="footer">
             <p> Bachao Pakistan 2026</p>
@@ -273,5 +303,5 @@
 </div>
 
 </body>
-<script src="Assets/JS/script.js"></script>
+<script src="Assets/JS/dashboard.js"></script>
 </html>>
