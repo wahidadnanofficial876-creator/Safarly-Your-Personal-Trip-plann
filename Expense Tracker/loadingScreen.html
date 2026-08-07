@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading Dashboard…</title>
+
+  <!-- Google Fonts: Inter (weights used: 400 fallback, 500 for the loading text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="Assets/CSS/loading.css">
+
+  
+  <noscript>
+    <meta http-equiv="refresh" content="2; url=dashboard.html" />
+  </noscript>
+</head>
+<body>
+
+  <main class="loading-screen" role="status" aria-live="polite">
+
+    <div class="loader-circle" id="loaderCircle" aria-hidden="true"></div>
+
+    
+    <p class="loading-text">
+      <span class="loading-text__label">Setting up Dashboard</span><span
+        class="loading-text__dots"
+        id="loadingDots"
+      >...</span>
+    </p>
+
+   
+    <span class="sr-only">Loading, please wait.</span>
+
+  </main>
+
+  <script src="Assets/JS/loading.js"></script>
+</body>
+</html>

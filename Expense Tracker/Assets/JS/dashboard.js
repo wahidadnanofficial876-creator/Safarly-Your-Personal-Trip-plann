@@ -28,6 +28,11 @@ const confirmationBtn=document.getElementById('confirmationBtn');
 //making an array to store expenses
 let expenses =[];
 
+let storedValue=getStoredValue();
+function displaySavedBudget()
+{
+  totalBudget.textContent=`${storedValue} Rs`;
+}
 //making an array of objects while clicking expense btn
 addExpenseBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -194,6 +199,12 @@ function setUpChart(type) {
   });
   chart.options.animation = true;
 }
+function getStoredValue()
+{
+  let localStorageValue=localStorage.getItem("Budget")
+  return localStorageValue;
+}
+displaySavedBudget();
 setUpChart("pie");
 shiftToCategoryTab();
 shiftToExpenseTab();

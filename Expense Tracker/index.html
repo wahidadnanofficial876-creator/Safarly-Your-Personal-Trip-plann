@@ -1,307 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
-
-    <link rel="stylesheet" href="Assets/CSS/navbar.css">
-    <link rel="stylesheet" href="Assets/CSS/dashboard.css">
-    <link href="Assets/CSS/category.css" rel="stylesheet">
-    <link href="Assets/CSS/chart.css" rel="stylesheet">
-    <link href="Assets/CSS/budget.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer">
-        
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Safarly — Track Trips. Split Expenses. Travel Stress-Free.</title>
+<meta name="description" content="Safarly helps friends manage trip budgets, split expenses fairly, track group spending, and settle balances—all in one beautiful platform." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/CSS/landing.css">
 </head>
-
 <body>
 
-<div class="layout">
 
+<header class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="#top" class="brand">
+      <span class="brand__mark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 6V5a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3v1" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <rect x="3" y="6" width="18" height="14" rx="3" stroke="white" stroke-width="2"/>
+          <path d="M3 12h18" stroke="white" stroke-width="2"/>
+        </svg>
+      </span>
+      <span class="brand__name">Safarly</span>
+    </a>
 
-
-    <aside id="container">
-
-        <div id="navbar">
-            <div id="product-name">
-                
-                <h2>Safarly</h2>
-
-                
-            </div>
-        </div>
-
-        <div id="navbar-buttons">
-
-            <button id="dashboard-button">
-                <i class="fa-solid fa-house"></i>
-                Dashboard
-            </button>
-
-            <button id="expenses-button">
-                <i class="fa-solid fa-receipt"></i>
-                Expenses
-            </button>
-
-            <button id="categories-button">
-                <i class="fa-solid fa-folder"></i>
-                Categories
-            </button>
-
-            <button id="budget-button">
-                <i class="fa-solid fa-chart-column"></i>
-                Budget
-            </button>
-
-        </div>
-
-        <div id="expense-details">
-            
-        </div>
-
-    </aside>
+    <nav class="nav-links" id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#blog">Blog</a>
+    </nav>
 
     
 
-    <main class="main-content">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
-        
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="#blog">Blog</a>
+    <a href="#login">Login</a>
+    <a href="#get-started" class="btn btn--primary">Get Started</a>
+  </div>
+</header>
 
-        <header class="topbar" id="dashboard-heading">
+<main id="top">
 
-            <div class="brand">
+  
+  <section class="hero">
+    <div class="hero__bg-glow" aria-hidden="true"></div>
+    <div class="hero__dots hero__dots--right" aria-hidden="true"></div>
 
-                <div class="brand-icon">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-
-                <div>
-                    <h1>Dashboard</h1>
-                    <p>Track your income and expenses</p>
-                </div>
-
-            </div>
-
-
-        </header>
-
-
-
-        <section class="stats" id="stats-panel">
-
-            <div class="stat-card">
-                <div class="stat-icon icon-purple">
-                    <i class="fa-solid fa-wallet"></i>
-                </div>
-
-                <p class="stat-label">Total Budget</p>
-                <h2 class="stat-value value-purple" id="totalBudget">0 Rs</h2>
-                <p class="stat-sub">Allocated Budget</p>
-            </div>
-
-            <div class="stat-card">
-                <div class="stat-icon icon-red">
-                    <i class="fa-solid fa-arrow-trend-up"></i>
-                </div>
-
-                <p class="stat-label">Total Expenses</p>
-                <h2 class="stat-value value-red" id="totalExpenses">0 Rs</h2>
-                <p class="stat-sub">All Expenses</p>
-            </div>
-
-            <div class="stat-card">
-                <div class="stat-icon icon-green">
-                    <i class="fa-solid fa-money-bill-wave"></i>
-                </div>
-
-                <p class="stat-label">Remaining Budget</p>
-                <h2 class="stat-value value-green" id="remainingBudget">0 Rs</h2>
-                <p class="stat-sub">Left to Spend</p>
-            </div>
-
-            <div class="stat-card">
-                <div class="stat-icon icon-blue">
-                    <i class="fa-solid fa-file-invoice"></i>
-                </div>
-
-                <p class="stat-label">Total Transactions</p>
-                <h2 class="stat-value" id="totalTransactions">0</h2>
-                <p class="stat-sub">This Month</p>
-            </div>
-
-        </section>
-<section id="chart-panel">
-    <div id="charts">
-        <canvas id="chart" aria-label="expense-chart" role="img"></canvas>
-    </div>
-</section>
-
-
-        <section class="panel" id="dashboard-panel">
-
-            <h2 class="panel-title">
-                <i class="fa-solid fa-square-plus"></i>
-                Add New Expense
-            </h2>
-
-            <form id="expenseForm" class="form-grid">
-
-                <div class="field">
-                    <label for="title">Title</label>
-                    <input
-                        type="text"
-                        id="title"
-                        placeholder="e.g. Groceries"
-                        required>
-                </div>
-
-                <div class="field">
-                    <label for="amount">Amount (Rs)</label>
-                    <input
-                        type="number"
-                        id="amount"
-                        placeholder="100"
-                        required>
-                </div>
-
-                <div class="field">
-                    <label for="category">Category</label>
-
-                    <select id="category" required>
-
-                        <option disabled selected>Select Category</option>
-
-                        <option>Food</option>
-                        <option>Transport</option>
-                        <option>Utilities</option>
-                        <option>Entertainment</option>
-                        <option>Other</option>
-
-                    </select>
-
-                </div>
-
-                <div class="field">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" required>
-                </div>
-
-                <div class="form-actions">
-
-                    <button class="btn-primary" type="submit" id="add-expense-btn">
-                        <i class="fa-solid fa-plus"></i>
-                        Add Expense
-                    </button>
-
-                </div>
-
-            </form>
-
-        </section>
-
-        
-
-        <section class="panel" id="dashboard-details">
-
-            <h2 class="panel-title">
-                <i class="fa-solid fa-list"></i>
-                Expenses List
-            </h2>
-
-            <table>
-
-                <thead>
-
-                    <tr>
-                        <th>#</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                        <th>Actions</th>
-                        
-                            
-                        </th>
-                        
-                    </tr>
-
-                </thead>
-
-                <tbody id="expenseTableBody">
-                
-                </tbody>
-
-            </table>
-</table>
-
-
-        </section>
-
-        <section id="categories" style="display: none;">
-    <div class="categories-card">
-        <div class="empty-category">
-            <div class="category-icon">
-                <i class="fa-solid fa-tags"></i>
-            </div>
-
-            <h2>No Categories</h2>
-
-            <p>
-                Get started by creating your first category to organize your expenses.
-            </p>
-
-            <button id="category-button">
-                <i class="fa-solid fa-plus"></i>
-                Add Category
-            </button>
+    <div class="container hero__inner">
+      <div class="hero__content fade-up">
+        <div class="badge">
+          <span class="badge__sparkle">✨</span>
+          Travel. Track. Split. Simplify.
         </div>
-    </div>
-</section>
-<section id="budget" style="display: none;">
-    <div class="budget-card">
-        <div class="budget-category">
-            <div class="budget-icon">
-                <i class="fa-solid fa-chart-column"></i>
+
+        <h1 class="hero__title">
+          Track Trips.<br>
+          Split Expenses.<br>
+          <span class="text-gradient">Travel Stress-Free.</span>
+        </h1>
+
+        <p class="hero__desc">
+          Safarly helps friends manage trip budgets, split expenses fairly, track group spending, and settle balances—all in one beautiful platform.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#get-started" class="btn btn--primary btn--lg">
+            Get Started Free
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a  class="btn btn--secondary btn--lg" id="login-button">Login</a>
+        </div>
+
+        <div class="hero__social">
+          <div class="stars" aria-label="5 star rating">★★★★★</div>
+          <span>Trusted by travelers and students.</span>
+        </div>
+      </div>
+
+      <div class="hero__visual fade-up" style="--delay:.15s">
+        <div class="dashboard-glow" aria-hidden="true"></div>
+
+        <div class="dashboard-card">
+          <aside class="dash-sidebar">
+            <div class="dash-sidebar__brand">
+              <span class="dash-sidebar__mark">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="14" rx="3" stroke="#5B5FEF" stroke-width="2.4"/><path d="M9 6V5a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3v1" stroke="#5B5FEF" stroke-width="2.4" stroke-linecap="round"/></svg>
+              </span>
+              Safarly
             </div>
 
-            <h2>No Budget Details</h2>
+            <nav class="dash-sidebar__nav">
+              <a class="active">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 10.5 12 3l9 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Dashboard
+              </a>
+              <a>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 2v4M17 2v4M3 9h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Expenses
+              </a>
+              <a>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h10M4 18h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Categories
+              </a>
+              <a>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20V10M12 20V4M20 20v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Budget
+              </a>
+            </nav>
 
-            <p>
-                Get started by Editing your Budget Details.
-            </p>
+            <div class="dash-sidebar__trip">
+              <p class="trip-name">Trip to Hunza</p>
+              <p class="trip-dates">May 10 – May 15</p>
+              <p class="trip-members">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                4 Members
+              </p>
+            </div>
+          </aside>
 
-            <button id="budget-add">
-                <i class="fa-solid fa-plus"></i>
-                Add Total Budget
-            </button>
+          <div class="dash-main">
+            <div class="dash-main__head">
+              <span class="dash-main__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/><path d="M7 15l4-5 3 3 5-7" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <h3>Dashboard</h3>
+                <p>Track your income and expenses</p>
+              </div>
+            </div>
+
+            <div class="dash-stats">
+              <div class="stat-card">
+                <span class="stat-card__icon stat-card__icon--purple">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="13" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg>
+                </span>
+                <p class="stat-card__label">Total Budget</p>
+                <p class="stat-card__value stat-card__value--purple" data-count="185000">Rs 0</p>
+                <p class="stat-card__sub">Allocated Budget</p>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__icon stat-card__icon--red">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <p class="stat-card__label">Total Expenses</p>
+                <p class="stat-card__value stat-card__value--red" data-count="72400">Rs 0</p>
+                <p class="stat-card__sub">All Expenses</p>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__icon stat-card__icon--green">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </span>
+                <p class="stat-card__label">Remaining Budget</p>
+                <p class="stat-card__value stat-card__value--green" data-count="112600">Rs 0</p>
+                <p class="stat-card__sub">Left to Spend</p>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__icon stat-card__icon--blue">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 3h6l1 3h3a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3l1-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                </span>
+                <p class="stat-card__label">Total Transactions</p>
+                <p class="stat-card__value stat-card__value--blue" data-count="38">0</p>
+                <p class="stat-card__sub">This Month</p>
+              </div>
+            </div>
+
+            <div class="dash-chart">
+              <div class="dash-chart__legend">
+                <span><i style="background:#5B5FEF"></i>Monday</span>
+                <span><i style="background:#3B82F6"></i>Tuesday</span>
+                <span><i style="background:#22C55E"></i>Wednesday</span>
+                <span><i style="background:#F59E0B"></i>Thursday</span>
+                <span><i style="background:#EF4444"></i>Friday</span>
+                <span><i style="background:#A855F7"></i>Saturday</span>
+                <span><i style="background:#14B8A6"></i>Sunday</span>
+              </div>
+              <div class="dash-chart__pie" role="img" aria-label="Weekly spending pie chart"></div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="edit-container"  id="edit" style="display: none;">
-        <div id="edit-budget">
-            <h2>Hey! Edit your Budget</h2>
-            <input id="budget-edit" placeholder="Enter your Budget Here!">
-            <button id="edit-button">Change Budget</button>
+  </section>
+
+  
+  <section class="section feature-cards" id="features">
+    <div class="container">
+      <div class="feature-cards__grid">
+
+        <div class="feature-card fade-up">
+          <span class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/><path d="M7 15l4-5 3 3 5-7" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Smart Expense Tracking</h3>
+          <p>Track every expense during your trip in real time.</p>
         </div>
+
+        <div class="feature-card fade-up" style="--delay:.08s">
+          <span class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.5" stroke="#5B5FEF" stroke-width="2"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/><path d="M16.5 5.5a3.5 3.5 0 0 1 0 7M21.5 20a6 6 0 0 0-4.5-8" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Split Bills Fairly</h3>
+          <p>Split expenses equally or by custom amount.</p>
+        </div>
+
+        <div class="feature-card fade-up" style="--delay:.16s">
+          <span class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2.5" stroke="#5B5FEF" stroke-width="2"/><path d="M16 12h3M3 10h18" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Budget Management</h3>
+          <p>Stay within budget throughout your journey.</p>
+        </div>
+
+        <div class="feature-card fade-up" style="--delay:.24s">
+          <span class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/><circle cx="10" cy="7" r="4" stroke="#5B5FEF" stroke-width="2"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Travel Together</h3>
+          <p>Invite friends and collaborate in one shared trip.</p>
+        </div>
+
+      </div>
     </div>
-    <div class="pop-up" id="message">
-        <img  src="assets/images/Tick.png">
-        <h2>Budget Added Successfuly!</h2>
-        <button id="confirmationBtn">OK</button>
+  </section>
+
+  <!-- ============ ALTERNATING SHOWCASE ============ -->
+  <section class="section showcase" id="showcase">
+    <div class="container">
+
+      <div class="showcase__row">
+        <div class="showcase__text fade-up">
+          <span class="eyebrow">Real-time tracking</span>
+          <h2>Track Expenses</h2>
+          <p>Log every rupee the moment it's spent. Safarly keeps a running list of who paid for what, so nothing gets forgotten or double-counted.</p>
+          <ul class="showcase__list">
+            <li>Add expenses in seconds, from any device</li>
+            <li>Auto-sort spending into categories</li>
+            <li>See the full trip history at a glance</li>
+          </ul>
+        </div>
+        <div class="showcase__visual fade-up" style="--delay:.1s">
+          <div class="mini-dash">
+            <div class="mini-dash__head">Recent Expenses</div>
+            <div class="expense-row">
+              <span class="expense-row__icon" style="background:#EEF0FE;color:#5B5FEF">🏨</span>
+              <div class="expense-row__info"><strong>Hunza Serena Hotel</strong><span>Paid by Ali</span></div>
+              <span class="expense-row__amt">Rs 24,000</span>
+            </div>
+            <div class="expense-row">
+              <span class="expense-row__icon" style="background:#FFF1E9;color:#F59E0B">🍽️</span>
+              <div class="expense-row__info"><strong>Dinner at Karimabad</strong><span>Paid by Sara</span></div>
+              <span class="expense-row__amt">Rs 6,200</span>
+            </div>
+            <div class="expense-row">
+              <span class="expense-row__icon" style="background:#EAFBF0;color:#22C55E">🚗</span>
+              <div class="expense-row__info"><strong>Jeep Rental</strong><span>Paid by Bilal</span></div>
+              <span class="expense-row__amt">Rs 15,500</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase__row showcase__row--reverse">
+        <div class="showcase__text fade-up">
+          <span class="eyebrow">Fair by default</span>
+          <h2>Split Expenses</h2>
+          <p>Split evenly, by percentage, or by exact amount. Safarly does the math instantly and shows every person's fair share.</p>
+          <ul class="showcase__list">
+            <li>Equal, custom, or percentage-based splits</li>
+            <li>Exclude people from specific expenses</li>
+            <li>Instant per-person breakdown</li>
+          </ul>
+        </div>
+        <div class="showcase__visual fade-up" style="--delay:.1s">
+          <div class="mini-dash">
+            <div class="mini-dash__head">Split — Jeep Rental · Rs 15,500</div>
+            <div class="split-row"><span class="avatar avatar--a">A</span>Ali<span class="split-row__amt">Rs 3,875</span></div>
+            <div class="split-row"><span class="avatar avatar--s">S</span>Sara<span class="split-row__amt">Rs 3,875</span></div>
+            <div class="split-row"><span class="avatar avatar--b">B</span>Bilal<span class="split-row__amt">Rs 3,875</span></div>
+            <div class="split-row"><span class="avatar avatar--h">H</span>Hina<span class="split-row__amt">Rs 3,875</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase__row">
+        <div class="showcase__text fade-up">
+          <span class="eyebrow">Stay on track</span>
+          <h2>Manage Budget</h2>
+          <p>Set a budget before you leave and watch it update live as expenses come in, so surprises stay off the itinerary.</p>
+          <ul class="showcase__list">
+            <li>Per-trip and per-category budgets</li>
+            <li>Visual progress with early warnings</li>
+            <li>Compare planned vs. actual spend</li>
+          </ul>
+        </div>
+        <div class="showcase__visual fade-up" style="--delay:.1s">
+          <div class="mini-dash">
+            <div class="mini-dash__head">Trip Budget</div>
+            <div class="budget-progress">
+              <div class="budget-progress__top"><span>Rs 72,400 spent</span><span>Rs 185,000 total</span></div>
+              <div class="budget-progress__bar"><div class="budget-progress__fill" style="width:39%"></div></div>
+              <p class="budget-progress__note">39% used · Rs 112,600 remaining</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase__row showcase__row--reverse">
+        <div class="showcase__text fade-up">
+          <span class="eyebrow">End on good terms</span>
+          <h2>Settle Balances</h2>
+          <p>When the trip ends, Safarly works out the smallest number of payments needed to settle every balance—no spreadsheets required.</p>
+          <ul class="showcase__list">
+            <li>Simplified "who owes whom" summary</li>
+            <li>Mark payments as settled</li>
+            <li>Share a final trip summary with everyone</li>
+          </ul>
+        </div>
+        <div class="showcase__visual fade-up" style="--delay:.1s">
+          <div class="mini-dash">
+            <div class="mini-dash__head">Settle Up</div>
+            <div class="settle-row"><span class="avatar avatar--s">S</span>Sara owes Ali<span class="settle-row__amt">Rs 4,150</span></div>
+            <div class="settle-row"><span class="avatar avatar--h">H</span>Hina owes Bilal<span class="settle-row__amt">Rs 2,300</span></div>
+            <button type="button" class="btn btn--primary btn--sm settle-row__btn">Mark all as settled</button>
+          </div>
+        </div>
+      </div>
+
     </div>
-</section>
-        <footer class="footer">
-            <p> Bachao Pakistan 2026</p>
-        </footer>
+  </section>
 
-    </main>
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-head fade-up">
+        <span class="eyebrow">How it works</span>
+        <h2>From packed bags to settled balances</h2>
+        <p>Four simple steps to a trip with zero money awkwardness.</p>
+      </div>
 
-</div>
+      <div class="timeline">
+        <svg class="timeline__line" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M100,60 C 300,10 300,110 500,60 S 800,110 1100,60" stroke="url(#tlGrad)" stroke-width="2.5" stroke-dasharray="2 12" stroke-linecap="round" fill="none"/>
+          <defs>
+            <linearGradient id="tlGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#5B5FEF"/>
+              <stop offset="1" stop-color="#7C6CF5"/>
+            </linearGradient>
+          </defs>
+        </svg>
 
+        <div class="timeline__step fade-up">
+          <div class="timeline__num">1</div>
+          <h3>Create a Trip</h3>
+          <p>Invite your friends.</p>
+        </div>
+        <div class="timeline__step fade-up" style="--delay:.08s">
+          <div class="timeline__num">2</div>
+          <h3>Add Expenses</h3>
+          <p>Everyone records spending.</p>
+        </div>
+        <div class="timeline__step fade-up" style="--delay:.16s">
+          <div class="timeline__num">3</div>
+          <h3>Split Automatically</h3>
+          <p>Safarly calculates who owes whom.</p>
+        </div>
+        <div class="timeline__step fade-up" style="--delay:.24s">
+          <div class="timeline__num">4</div>
+          <h3>Settle Up</h3>
+          <p>Finish the trip stress free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS ============ -->
+  <section class="section benefits" id="about">
+    <div class="container">
+      <div class="section-head fade-up">
+        <span class="eyebrow">Why Safarly</span>
+        <h2>Everything your group trip needs</h2>
+      </div>
+
+      <div class="benefits__grid">
+        <div class="benefit-card fade-up">
+          <span class="benefit-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="#5B5FEF" stroke-width="2" stroke-linejoin="round"/></svg></span>
+          <h3>Instant Calculations</h3>
+          <p>Balances update the second an expense is added.</p>
+        </div>
+        <div class="benefit-card fade-up" style="--delay:.06s">
+          <span class="benefit-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="#5B5FEF" stroke-width="2"/><path d="M4 14 20 4" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <h3>No Spreadsheets</h3>
+          <p>Ditch the messy sheets and manual math forever.</p>
+        </div>
+        <div class="benefit-card fade-up" style="--delay:.12s">
+          <span class="benefit-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/><rect x="7" y="12" width="3" height="6" fill="#5B5FEF"/><rect x="12" y="8" width="3" height="10" fill="#5B5FEF"/><rect x="17" y="5" width="3" height="13" fill="#5B5FEF"/></svg></span>
+          <h3>Budget Insights</h3>
+          <p>See where your money actually goes, trip after trip.</p>
+        </div>
+        <div class="benefit-card fade-up" style="--delay:.18s">
+          <span class="benefit-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 3" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="13" r="8" stroke="#5B5FEF" stroke-width="2"/><path d="M9 2h6" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <h3>Expense History</h3>
+          <p>Every past trip, kept organized and searchable.</p>
+        </div>
+        <div class="benefit-card fade-up" style="--delay:.24s">
+          <span class="benefit-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5l-8-3Z" stroke="#5B5FEF" stroke-width="2" stroke-linejoin="round"/></svg></span>
+          <h3>Secure Data</h3>
+          <p>Your trip and payment data stays private and protected.</p>
+        </div>
+        <div class="benefit-card fade-up" style="--delay:.3s">
+          <span class="benefit-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#5B5FEF" stroke-width="2"/><path d="M10 18h4" stroke="#5B5FEF" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <h3>Responsive Dashboard</h3>
+          <p>A clean experience on your phone, tablet, or laptop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section testimonials" id="blog">
+    <div class="container">
+      <div class="section-head fade-up">
+        <span class="eyebrow">Testimonials</span>
+        <h2>Loved by groups who travel together</h2>
+      </div>
+
+      <div class="testimonials__grid">
+        <div class="testimonial-card fade-up">
+          <div class="stars">★★★★★</div>
+          <p>"We used to argue about who owed what after every trip. Safarly ended that completely — everyone just checks the app."</p>
+          <div class="testimonial-card__person">
+            <span class="avatar avatar--a">A</span>
+            <div><strong>Ayesha Khan</strong><span>University Student</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up" style="--delay:.08s">
+          <div class="stars">★★★★★</div>
+          <p>"Setting a group budget and watching it update live kept our Hunza trip from blowing way past what we planned."</p>
+          <div class="testimonial-card__person">
+            <span class="avatar avatar--b">B</span>
+            <div><strong>Bilal Ahmed</strong><span>Software Engineer</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up" style="--delay:.16s">
+          <div class="stars">★★★★★</div>
+          <p>"The settle-up screen alone is worth it. It tells us exactly who to pay and how much, no group chat math needed."</p>
+          <div class="testimonial-card__person">
+            <span class="avatar avatar--s">S</span>
+            <div><strong>Sara Malik</strong><span>Travel Blogger</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section faq">
+    <div class="container container--narrow">
+      <div class="section-head fade-up">
+        <span class="eyebrow">FAQ</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+
+      <div class="accordion" id="accordion">
+        <div class="accordion__item fade-up">
+          <button class="accordion__trigger" aria-expanded="false">
+            Is Safarly free to use?
+            <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion__panel"><p>Yes. Safarly is free to get started for you and your travel group, with no card required.</p></div>
+        </div>
+        <div class="accordion__item fade-up" style="--delay:.05s">
+          <button class="accordion__trigger" aria-expanded="false">
+            How does splitting expenses work?
+            <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion__panel"><p>Add an expense, choose who it applies to, and split it equally, by percentage, or by exact amount. Safarly instantly recalculates every balance.</p></div>
+        </div>
+        <div class="accordion__item fade-up" style="--delay:.1s">
+          <button class="accordion__trigger" aria-expanded="false">
+            Can I use Safarly for more than one trip?
+            <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion__panel"><p>Absolutely. Create as many trips as you like, each with its own members, budget, and expense history.</p></div>
+        </div>
+        <div class="accordion__item fade-up" style="--delay:.15s">
+          <button class="accordion__trigger" aria-expanded="false">
+            Is my payment data secure?
+            <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion__panel"><p>Yes. Your trip and expense data is encrypted and never shared with anyone outside your group.</p></div>
+        </div>
+        <div class="accordion__item fade-up" style="--delay:.2s">
+          <button class="accordion__trigger" aria-expanded="false">
+            Does Safarly work on mobile?
+            <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion__panel"><p>Yes. Safarly's dashboard is fully responsive, so you can track and split expenses right from your phone.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="section cta" id="get-started">
+    <div class="container">
+      <div class="cta__box fade-up">
+        <h2>Ready for your next adventure?</h2>
+        <p>Start tracking expenses with your friends today.</p>
+        <a href="#top" class="btn btn--primary btn--lg" id="btn">
+          Get Started Free
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="#top" class="brand">
+        <span class="brand__mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="14" rx="3" stroke="white" stroke-width="2"/><path d="M9 6V5a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3v1" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand__name">Safarly</span>
+      </a>
+      <p>Track trips, split expenses, travel stress-free.</p>
+    </div>
+
+    <div class="footer__links">
+      <span class="footer__col-title">Quick Links</span>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#blog">Blog</a>
+      <a href="#login">Login</a>
+    </div>
+
+    <div class="footer__links">
+      <span class="footer__col-title">Legal</span>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms</a>
+    </div>
+  </div>
+
+  <div class="footer__bottom container">
+    <p>© <span id="year"></span> Safarly. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="assets/JS/landing.js"></script>
 </body>
-<script src="Assets/JS/dashboard.js"></script>
-</html>>
+</html>
